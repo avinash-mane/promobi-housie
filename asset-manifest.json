@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/promobi-housie/static/css/main.ab7136cd.chunk.css",
+    "main.js": "/promobi-housie/static/js/main.b9c612a7.chunk.js",
+    "main.js.map": "/promobi-housie/static/js/main.b9c612a7.chunk.js.map",
+    "runtime-main.js": "/promobi-housie/static/js/runtime-main.9ade940f.js",
+    "runtime-main.js.map": "/promobi-housie/static/js/runtime-main.9ade940f.js.map",
+    "static/css/2.20aa2d7b.chunk.css": "/promobi-housie/static/css/2.20aa2d7b.chunk.css",
+    "static/js/2.91233091.chunk.js": "/promobi-housie/static/js/2.91233091.chunk.js",
+    "static/js/2.91233091.chunk.js.map": "/promobi-housie/static/js/2.91233091.chunk.js.map",
+    "static/js/3.1b864c32.chunk.js": "/promobi-housie/static/js/3.1b864c32.chunk.js",
+    "static/js/3.1b864c32.chunk.js.map": "/promobi-housie/static/js/3.1b864c32.chunk.js.map",
+    "index.html": "/promobi-housie/index.html",
+    "static/css/2.20aa2d7b.chunk.css.map": "/promobi-housie/static/css/2.20aa2d7b.chunk.css.map",
+    "static/css/main.ab7136cd.chunk.css.map": "/promobi-housie/static/css/main.ab7136cd.chunk.css.map",
+    "static/js/2.91233091.chunk.js.LICENSE.txt": "/promobi-housie/static/js/2.91233091.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9ade940f.js",
+    "static/css/2.20aa2d7b.chunk.css",
+    "static/js/2.91233091.chunk.js",
+    "static/css/main.ab7136cd.chunk.css",
+    "static/js/main.b9c612a7.chunk.js"
+  ]
+}
