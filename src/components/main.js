@@ -37,7 +37,7 @@ function App() {
         <div>
           <FormControl type="number" placeholder="Check number in list" onChange={handleSearch} />
         </div>
-        <div style={{ fontSize: "20px" }} className="pt-2">Previus</div>
+        <div style={{ fontSize: "20px" }} className="pt-2">Previous</div>
         <div style={{ width: "120px", height: "120px" }} className="d-flex align-items-center justify-content-center border border-secondary rounded-circle mb-1" >
           {list.length !== 0 &&
             <span style={{ fontSize: "70px", color: "grey" }}>
