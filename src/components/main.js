@@ -33,7 +33,7 @@ function App() {
 
   return (
     <div className="row" style={{ height: "100vh", border: "2px solid" }}>
-      <div className="col-4 d-flex align-items-center flex-column pt-5" style={{ backgroundColor: "#edf5fe" }}>
+      <div className="col-4 d-flex align-items-center flex-column pt-3" style={{ backgroundColor: "#edf5fe" }}>
         <div>
           <FormControl type="number" placeholder="Check number in list" onChange={handleSearch} />
         </div>
