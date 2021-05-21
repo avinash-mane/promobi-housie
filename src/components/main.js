@@ -57,7 +57,7 @@ function App() {
               <h1>Start With Spin &#x21e9;</h1>
           }
         </div>
-        <Button className="mt-5" variant="outline-primary" onClick={handleOnClick} size="lg">
+        <Button className="mt-3" variant="outline-primary" onClick={handleOnClick} size="lg">
           {isWating ?
             <Spinner animation="border" variant="info" /> :
             <>Spin &#x27F3;</>
@@ -73,7 +73,7 @@ function App() {
           {list.length != 0 ?
             <div class="d-flex flex-wrap">
               {list.map((number, index) => <div className="d-flex align-items-center justify-content-between border border-primary rounded-pill mx-2 my-2 px-3 pt-1" style={{ width: "100px", backgroundColor: list.length == index + 1 ? "#f5cf9f" : number == search ? "#7ff383" : "" }}>
-                <h6>{index + 1}</h6>
+                <h6 style={{color:"grey"}}>{index + 1}</h6>
                 <h3 className="ml-2">{number}</h3>
               </div>)}
             </div> :
