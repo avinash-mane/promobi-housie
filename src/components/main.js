@@ -36,7 +36,7 @@ function App() {
       <div className="col-4 d-flex align-items-center flex-column pt-3" style={{ backgroundColor: "#edf5fe" }}>
         <div className="d-flex align-items-center">
           <FormControl type="number" placeholder="Check number in list" onChange={handleSearch} />
-          <span className="ml-2">{search ? list.includes(search) ? <>&#x2714;</> : <>&#x2716;</> : ""}</span>
+          <span className="ml-2" style={{ fontSize: "20px", color: list.includes(search) ? "green" : "red" }}>{search ? list.includes(search) ? <>&#x2714;</> : <>&#x2716;</> : ""}</span>
         </div>
         <div style={{ fontSize: "20px" }} className="pt-2">Previous</div>
         <div style={{ width: "120px", height: "120px" }} className="d-flex align-items-center justify-content-center border border-secondary rounded-circle mb-1" >
