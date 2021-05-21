@@ -1,9 +1,11 @@
-import React, { useCallback, useState } from "react";
-import { Button, Spinner, Container } from "react-bootstrap";
+import React, { useState } from "react";
+import { Button, Spinner, Container, FormControl } from "react-bootstrap";
 function App() {
   const [list, setList] = useState([]);
   const [isWating, setIsWating] = useState(false);
   const [spinner, setSpiner] = useState(1);
+  const [search, setSearch] = useState(0);
+
   const handleOnClick = () => {
     let intervalId = setInterval(() => {
       let number = Math.floor(Math.random() * (100 - 1) + 1)
@@ -23,9 +25,18 @@ function App() {
       }
     }
   }
+
+  const handleSearch = (e) => {
+    setSearch(parseInt(e.target.value))
+    debugger
+  }
+
   return (
     <div className="row" style={{ height: "100vh", border: "2px solid" }}>
       <div className="col-4 d-flex align-items-center flex-column pt-5" style={{ backgroundColor: "#edf5fe" }}>
+        <div>
+          <FormControl type="number" placeholder="Check number in list" onChange={handleSearch} />
+        </div>
         <div style={{ fontSize: "20px" }} className="pt-2">Previus</div>
         <div style={{ width: "120px", height: "120px" }} className="d-flex align-items-center justify-content-center border border-secondary rounded-circle mb-1" >
           {list.length !== 0 &&
@@ -49,7 +60,7 @@ function App() {
         <Button className="mt-5" variant="outline-primary" onClick={handleOnClick} size="lg">
           {isWating ?
             <Spinner animation="border" variant="info" /> :
-             <>Spin &#x27F3;</>
+            <>Spin &#x27F3;</>
           }
         </Button>
 
@@ -61,7 +72,7 @@ function App() {
         <Container>
           {list.length != 0 ?
             <div class="d-flex flex-wrap">
-              {list.map((number, index) => <div className="d-flex align-items-center justify-content-between border border-primary rounded-pill mx-2 my-2 px-3 pt-1" style={{ width: "100px", backgroundColor: list.length == index + 1 ? "#f5cf9f" : "" }}>
+              {list.map((number, index) => <div className="d-flex align-items-center justify-content-between border border-primary rounded-pill mx-2 my-2 px-3 pt-1" style={{ width: "100px", backgroundColor: list.length == index + 1 ? "#f5cf9f" : number == search ? "#7ff383" : "" }}>
                 <h6>{index + 1}</h6>
                 <h3 className="ml-2">{number}</h3>
               </div>)}
