@@ -34,8 +34,9 @@ function App() {
   return (
     <div className="row" style={{ height: "100vh", border: "2px solid" }}>
       <div className="col-4 d-flex align-items-center flex-column pt-3" style={{ backgroundColor: "#edf5fe" }}>
-        <div>
+        <div className="d-flex align-items-center">
           <FormControl type="number" placeholder="Check number in list" onChange={handleSearch} />
+          <span className="ml-2">{search ? list.includes(search) ? <>&#x2714;</> : <>&#x2716;</> : ""}</span>
         </div>
         <div style={{ fontSize: "20px" }} className="pt-2">Previous</div>
         <div style={{ width: "120px", height: "120px" }} className="d-flex align-items-center justify-content-center border border-secondary rounded-circle mb-1" >
@@ -73,7 +74,7 @@ function App() {
           {list.length != 0 ?
             <div class="d-flex flex-wrap">
               {list.map((number, index) => <div className="d-flex align-items-center justify-content-between border border-primary rounded-pill mx-2 my-2 px-3 pt-1" style={{ width: "100px", backgroundColor: list.length == index + 1 ? "#f5cf9f" : number == search ? "#7ff383" : "" }}>
-                <h6 style={{color:"grey"}}>{index + 1}</h6>
+                <h6 style={{ color: "grey" }}>{index + 1}</h6>
                 <h3 className="ml-2">{number}</h3>
               </div>)}
             </div> :
