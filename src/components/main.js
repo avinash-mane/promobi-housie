@@ -112,12 +112,12 @@ function App() {
           }
         </Button>
         <div class="d-flex flex-wrap">
-          <FormCheck className="m-2" label="Fast Five" />
-          <FormCheck className="m-2" label="First Row" />
-          <FormCheck className="m-2" label="Middle Row" />
-          <FormCheck className="m-2" label="Last Row" />
-          <FormCheck className="m-2" label="Four Corners" />
-          <FormCheck className="m-2" label="Bingo..." />
+          <FormCheck className="m-2" style={{width:"120px"}} label="Fast Five" />
+          <FormCheck className="m-2" style={{width:"120px"}} label="First Row" />
+          <FormCheck className="m-2" style={{width:"120px"}} label="Middle Row" />
+          <FormCheck className="m-2" style={{width:"120px"}} label="Last Row" />
+          <FormCheck className="m-2" style={{width:"120px"}} label="Four Corners" />
+          <FormCheck className="m-2" style={{width:"120px"}} label="Bingo..." />
         </div>
       </div>
       <div className="col pt-2" style={{ overflow: "auto", height: "100%", backgroundColor: "#eef0d6", borderLeft: "1px solid" }}>
