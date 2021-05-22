@@ -57,7 +57,7 @@ function App() {
     let tempList = []
     for (let i = 0; i <= 89; i++) {
       tempList.push(<div
-        className="d-flex align-items-center justify-content-between border border-primary rounded-pill mx-2 my-2 px-3 "
+        className="d-flex align-items-center justify-content-between border border-primary rounded-pill mx-2 my-2 px-2 "
         style={{ width: "80px", height: "40px", backgroundColor: list.length == i + 1 ? "#f5cf9f" : list[i] == search ? "#7ff383" : "" }}>
         <h6 className="pt-1" style={{ color: "grey" }}>{i + 1}</h6>
         <span className="ml-2 " style={{ fontSize: "25px" }}><b>{list[i] && list[i]}</b></span>
@@ -72,7 +72,7 @@ function App() {
       tempList.push(<div
         className="d-flex align-items-center justify-content-between border border-primary rounded-pill mx-2 my-2 px-3 "
         style={{ width: "80px", height: "40px", backgroundColor: list.includes(i) ? "#f5cf9f" : list[i] == search ? "#7ff383" : "" }}>
-        <span className="pl-3 " style={{ fontSize: "25px", color: !list.includes(i) ? "grey" : "" }}><b>{i}</b></span>
+        <span className="pl-2 " style={{ fontSize: "25px", color: !list.includes(i) ? "grey" : "" }}><b>{i}</b></span>
       </div>)
     }
     return tempList;
@@ -107,10 +107,10 @@ function App() {
               {spinner}
             </span> :
             list.length ?
-              <span style={{ fontSize: list.length ? "135px" : "20px" }}>
+              <span style={{ fontSize: list.length !=0 ? "135px" : "50px" }}>
                 {list[list.length - 1]}
               </span> :
-              <h1>Start With Spin &#x21e9;</h1>
+              <h2>Start With Spin &#x21e9;</h2>
           }
         </div>
         <Button className="mt-3" variant="outline-primary" onClick={handleOnClick}>
@@ -120,7 +120,7 @@ function App() {
           }
         </Button>
         <div class="d-flex flex-wrap mt-2 mx-4">
-          {wins.map(label => <FormCheck style={{ width: "120px", textAlign:"left" }} label={label} />)}
+          {wins.map(label => <FormCheck style={{ width: "120px", textAlign:"left" }} className="p-2" label={label} />)}
         </div>
       </div>
       <div className="col pt-2" style={{ overflow: "auto", height: "100%", backgroundColor: "#eef0d6", borderLeft: "1px solid" }}>
