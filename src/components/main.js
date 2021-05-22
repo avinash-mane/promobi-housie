@@ -1,5 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Button, Spinner, Container, FormControl, FormCheck } from "react-bootstrap";
+const wins = [
+  "Fast Five",
+  "First Row",
+  "Middle Row",
+  "Last Row",
+  "Four Corners",
+  "Bingo..."
+]
 function App() {
   const [list, setList] = useState([]);
   const [isWating, setIsWating] = useState(false);
@@ -99,7 +107,7 @@ function App() {
               {spinner}
             </span> :
             list.length ?
-              <span style={{ fontSize: list.length ? "135px" : "40px" }}>
+              <span style={{ fontSize: list.length ? "135px" : "30px" }}>
                 {list[list.length - 1]}
               </span> :
               <h1>Start With Spin &#x21e9;</h1>
@@ -111,13 +119,8 @@ function App() {
             <>Spin &#x27F3;</>
           }
         </Button>
-        <div class="d-flex flex-wrap">
-          <FormCheck className="m-2" style={{width:"120px"}} label="Fast Five" />
-          <FormCheck className="m-2" style={{width:"120px"}} label="First Row" />
-          <FormCheck className="m-2" style={{width:"120px"}} label="Middle Row" />
-          <FormCheck className="m-2" style={{width:"120px"}} label="Last Row" />
-          <FormCheck className="m-2" style={{width:"120px"}} label="Four Corners" />
-          <FormCheck className="m-2" style={{width:"120px"}} label="Bingo..." />
+        <div class="d-flex flex-wrap mt-2">
+          {wins.map(label => <FormCheck className="m-2" style={{ width: "150px" }} label={label} />)}
         </div>
       </div>
       <div className="col pt-2" style={{ overflow: "auto", height: "100%", backgroundColor: "#eef0d6", borderLeft: "1px solid" }}>
