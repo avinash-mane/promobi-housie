@@ -50,7 +50,7 @@ function App() {
     for (let i = 0; i <= 89; i++) {
       tempList.push(<div
         className="d-flex align-items-center justify-content-between border border-primary rounded-pill mx-2 my-2 px-3 "
-        style={{ width: "90px", height: "45px", backgroundColor: list.length == i + 1 ? "#f5cf9f" : list[i] == search ? "#7ff383" : "" }}>
+        style={{ width: "80px", height: "45px", backgroundColor: list.length == i + 1 ? "#f5cf9f" : list[i] == search ? "#7ff383" : "" }}>
         <h6 className="pt-1" style={{ color: "grey" }}>{i + 1}</h6>
         <span className="ml-2 " style={{ fontSize: "25px" }}><b>{list[i] && list[i]}</b></span>
       </div>)
@@ -60,10 +60,10 @@ function App() {
 
   const Board = () => {
     let tempList = []
-    for (let i = 0; i <= 89; i++) {
+    for (let i = 1; i <= 90; i++) {
       tempList.push(<div
         className="d-flex align-items-center justify-content-between border border-primary rounded-pill mx-2 my-2 px-3 "
-        style={{ width: "90px", height: "45px", backgroundColor: list.includes(i) ? "#f5cf9f" : list[i] == search ? "#7ff383" : "" }}>
+        style={{ width: "80px", height: "45px", backgroundColor: list.includes(i) ? "#f5cf9f" : list[i] == search ? "#7ff383" : "" }}>
         <span className="pl-3 " style={{ fontSize: "25px", color: !list.includes(i) ? "grey" : "" }}><b>{i}</b></span>
       </div>)
     }
