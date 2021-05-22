@@ -50,9 +50,9 @@ function App() {
     for (let i = 0; i <= 89; i++) {
       tempList.push(<div
         className="d-flex align-items-center justify-content-between border border-primary rounded-pill mx-2 my-2 px-3 "
-        style={{ width: "100px", height: "50px", backgroundColor: list.length == i + 1 ? "#f5cf9f" : list[i] == search ? "#7ff383" : "" }}>
+        style={{ width: "80px", height: "40px", backgroundColor: list.length == i + 1 ? "#f5cf9f" : list[i] == search ? "#7ff383" : "" }}>
         <h6 className="pt-1" style={{ color: "grey" }}>{i + 1}</h6>
-        <span className="ml-2 " style={{ fontSize: "30px" }}><b>{list[i] && list[i]}</b></span>
+        <span className="ml-2 " style={{ fontSize: "25px" }}><b>{list[i] && list[i]}</b></span>
       </div>)
     }
     return tempList;
@@ -63,8 +63,8 @@ function App() {
     for (let i = 0; i <= 89; i++) {
       tempList.push(<div
         className="d-flex align-items-center justify-content-between border border-primary rounded-pill mx-2 my-2 px-3 "
-        style={{ width: "100px", height: "50px", backgroundColor: list.includes(i) ? "#f5cf9f" : list[i] == search ? "#7ff383" : "" }}>
-        <span className="pl-3 " style={{ fontSize: "30px" }}><b>{i}</b></span>
+        style={{ width: "80px", height: "40px", backgroundColor: list.includes(i) ? "#f5cf9f" : list[i] == search ? "#7ff383" : "" }}>
+        <span className="pl-3 " style={{ fontSize: "25px", color: !list.includes(i) ? "grey" : "" }}><b>{i}</b></span>
       </div>)
     }
     return tempList;
@@ -78,34 +78,34 @@ function App() {
           <span className="ml-2" style={{ fontSize: "20px", color: list.includes(search) ? "green" : "red" }}>
             {search ? list.includes(search) ? <>&#x2714;</> : <>&#x2716;</> : ""}
           </span> */}
-          <Button variant="secondary" onClick={handleOnReset}>
+          <Button variant="secondary" onClick={handleOnReset} size="sm">
             Reset
         </Button>
-          <Button className="ml-3" variant="success" onClick={() => setView(!view)}>
+          <Button className="ml-3" variant="success" onClick={() => setView(!view)} size="sm">
             Change View
         </Button>
         </div>
         <div style={{ fontSize: "20px" }} className="pt-2">Previous</div>
-        <div style={{ width: "120px", height: "120px" }} className="d-flex align-items-center justify-content-center border border-secondary rounded-circle mb-1" >
+        <div style={{ width: "100px", height: "100px" }} className="d-flex align-items-center justify-content-center border border-secondary rounded-circle mb-1" >
           {list.length !== 0 &&
-            <span style={{ fontSize: "70px", color: "grey" }}>
+            <span style={{ fontSize: "60px", color: "grey" }}>
               {list[list.length - 2]}
             </span>
           }
         </div>
-        <div style={{ width: "220px", height: "220px" }} className="d-flex align-items-center justify-content-center border border-dark rounded-circle" >
+        <div style={{ width: "200px", height: "200px" }} className="d-flex align-items-center justify-content-center border border-dark rounded-circle" >
           {isWating ?
-            <span style={{ fontSize: "150px", color: "grey" }}>
+            <span style={{ fontSize: "135px", color: "grey" }}>
               {spinner}
             </span> :
             list.length ?
-              <span style={{ fontSize: list.length ? "150px" : "50px" }}>
+              <span style={{ fontSize: list.length ? "135px" : "45px" }}>
                 {list[list.length - 1]}
               </span> :
               <h1>Start With Spin &#x21e9;</h1>
           }
         </div>
-        <Button className="mt-3" variant="outline-primary" onClick={handleOnClick} size="lg">
+        <Button className="mt-3" variant="outline-primary" onClick={handleOnClick}>
           {isWating ?
             <Spinner animation="border" variant="info" /> :
             <>Spin &#x27F3;</>
