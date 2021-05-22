@@ -30,21 +30,23 @@ function App() {
   }
 
   const handleOnClick = () => {
-    let intervalId = setInterval(() => {
-      let number = Math.floor(Math.random() * (90 - 1) + 1)
-      setSpiner(number)
-    }, 50)
-    let flag = true;
-    while (flag && list.length !== 90) {
-      let number = Math.floor(Math.random() * (90 - 1) + 1)
-      if (!list.includes(number)) {
-        setIsWating(true)
-        flag = false
-        setTimeout(() => {
-          clearInterval(intervalId)
-          setList([...list, number])
-          setIsWating(false)
-        }, 1000)
+    if (list.length < 90) {
+      let intervalId = setInterval(() => {
+        let number = Math.floor(Math.random() * (91 - 1) + 1)
+        setSpiner(number)
+      }, 50)
+      let flag = true;
+      while (flag) {
+        let number = Math.floor(Math.random() * (91 - 1) + 1)
+        if (!list.includes(number)) {
+          setIsWating(true)
+          flag = false
+          setTimeout(() => {
+            clearInterval(intervalId)
+            setList([...list, number])
+            setIsWating(false)
+          }, 1000)
+        }
       }
     }
   }
@@ -107,7 +109,7 @@ function App() {
               {spinner}
             </span> :
             list.length ?
-              <span style={{ fontSize: list.length !=0 ? "135px" : "50px" }}>
+              <span style={{ fontSize: list.length != 0 ? "135px" : "50px" }}>
                 {list[list.length - 1]}
               </span> :
               <h2>Start With Spin &#x21e9;</h2>
@@ -120,7 +122,7 @@ function App() {
           }
         </Button>
         <div class="d-flex flex-wrap mt-2 mx-4">
-          {wins.map(label => <FormCheck style={{ width: "120px", textAlign:"left" }} className="p-2" label={label} />)}
+          {wins.map(label => <FormCheck style={{ width: "120px", textAlign: "left" }} className="p-2" label={label} />)}
         </div>
       </div>
       <div className="col pt-2" style={{ overflow: "auto", height: "100%", backgroundColor: "#eef0d6", borderLeft: "1px solid" }}>
