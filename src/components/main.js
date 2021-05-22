@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Spinner, Container, FormControl } from "react-bootstrap";
 function App() {
   const [list, setList] = useState([]);
@@ -6,6 +6,20 @@ function App() {
   const [spinner, setSpiner] = useState(1);
   const [search, setSearch] = useState(0);
 
+  useEffect(() => {
+    if (list.length) localStorage.setItem("numbers", JSON.stringify(list))
+  }, [list])
+
+  useEffect(() => {
+    let stoaredList = JSON.parse(localStorage.getItem("numbers"))
+    if (stoaredList) setList(stoaredList)
+  }, [])
+
+  const handleOnReset = () => {
+    setList([])
+    localStorage.removeItem("numbers")
+  }
+  
   const handleOnClick = () => {
     let intervalId = setInterval(() => {
       let number = Math.floor(Math.random() * (100 - 1) + 1)
@@ -28,7 +42,6 @@ function App() {
 
   const handleSearch = (e) => {
     setSearch(parseInt(e.target.value))
-    debugger
   }
 
   return (
@@ -65,7 +78,7 @@ function App() {
           }
         </Button>
 
-        <Button className="mt-5" variant="secondary" onClick={() => setList([])} size="sm">
+        <Button className="mt-5" variant="secondary" onClick={handleOnReset} size="sm">
           Reset
         </Button>
       </div>
