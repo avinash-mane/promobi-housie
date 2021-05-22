@@ -13,7 +13,7 @@ function App() {
   const [isWating, setIsWating] = useState(false);
   const [spinner, setSpiner] = useState(1);
   const [search, setSearch] = useState(0);
-  const [view, setView] = useState(true)
+  const [view, setView] = useState(false)
 
   useEffect(() => {
     if (list.length) localStorage.setItem("numbers", JSON.stringify(list))
