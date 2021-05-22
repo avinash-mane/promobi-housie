@@ -78,7 +78,7 @@ function App() {
           <span className="ml-2" style={{ fontSize: "20px", color: list.includes(search) ? "green" : "red" }}>
             {search ? list.includes(search) ? <>&#x2714;</> : <>&#x2716;</> : ""}
           </span> */}
-          <Button  variant="secondary" onClick={handleOnReset}>
+          <Button variant="secondary" onClick={handleOnReset}>
             Reset
         </Button>
           <Button className="ml-3" variant="success" onClick={() => setView(!view)}>
@@ -114,12 +114,9 @@ function App() {
       </div>
       <div className="col pt-2" style={{ overflow: "auto", height: "100%", backgroundColor: "#eef0d6", borderLeft: "1px solid" }}>
         <div>
-          {list.length !== 0 ?
-            <div class="d-flex flex-wrap">
-              {view ? <Sequence /> : <Board />}
-            </div> :
-            <h1 className="mt-5">Good  Luck...!</h1>
-          }
+          <div class="d-flex flex-wrap">
+            {view ? <Sequence /> : <Board />}
+          </div>
         </div>
       </div>
     </div>
