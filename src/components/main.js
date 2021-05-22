@@ -114,6 +114,7 @@ function App() {
       </div>
       <div className="col pt-2" style={{ overflow: "auto", height: "100%", backgroundColor: "#eef0d6", borderLeft: "1px solid" }}>
         <div>
+          <h1><b>Good Luck...!</b></h1>
           <div class="d-flex flex-wrap">
             {view ? <Sequence /> : <Board />}
           </div>
