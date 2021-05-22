@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button, Spinner, Container, FormControl } from "react-bootstrap";
+import { Button, Spinner, Container, FormControl, FormCheck } from "react-bootstrap";
 function App() {
   const [list, setList] = useState([]);
   const [isWating, setIsWating] = useState(false);
@@ -78,7 +78,7 @@ function App() {
           <span className="ml-2" style={{ fontSize: "20px", color: list.includes(search) ? "green" : "red" }}>
             {search ? list.includes(search) ? <>&#x2714;</> : <>&#x2716;</> : ""}
           </span> */}
-          <Button variant="secondary" onClick={handleOnReset} size="sm">
+          <Button variant="info" onClick={handleOnReset} size="sm">
             Reset
         </Button>
           <Button className="ml-3" variant="success" onClick={() => setView(!view)} size="sm">
@@ -99,7 +99,7 @@ function App() {
               {spinner}
             </span> :
             list.length ?
-              <span style={{ fontSize: list.length ? "135px" : "45px" }}>
+              <span style={{ fontSize: list.length ? "135px" : "40px" }}>
                 {list[list.length - 1]}
               </span> :
               <h1>Start With Spin &#x21e9;</h1>
@@ -111,6 +111,14 @@ function App() {
             <>Spin &#x27F3;</>
           }
         </Button>
+        <div class="d-flex flex-wrap">
+          <FormCheck className="m-2" label="Fast Five" />
+          <FormCheck className="m-2" label="First Row" />
+          <FormCheck className="m-2" label="Middle Row" />
+          <FormCheck className="m-2" label="Last Row" />
+          <FormCheck className="m-2" label="Four Corners" />
+          <FormCheck className="m-2" label="Bingo..." />
+        </div>
       </div>
       <div className="col pt-2" style={{ overflow: "auto", height: "100%", backgroundColor: "#eef0d6", borderLeft: "1px solid" }}>
         <div>
