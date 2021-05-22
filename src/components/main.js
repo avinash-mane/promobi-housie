@@ -5,6 +5,7 @@ function App() {
   const [isWating, setIsWating] = useState(false);
   const [spinner, setSpiner] = useState(1);
   const [search, setSearch] = useState(0);
+  const [view, setView] = useState(true)
 
   useEffect(() => {
     if (list.length) localStorage.setItem("numbers", JSON.stringify(list))
@@ -19,15 +20,15 @@ function App() {
     setList([])
     localStorage.removeItem("numbers")
   }
-  
+
   const handleOnClick = () => {
     let intervalId = setInterval(() => {
-      let number = Math.floor(Math.random() * (100 - 1) + 1)
+      let number = Math.floor(Math.random() * (90 - 1) + 1)
       setSpiner(number)
     }, 50)
     let flag = true;
-    while (flag && list.length !== 99) {
-      let number = Math.floor(Math.random() * (100 - 1) + 1)
+    while (flag && list.length !== 90) {
+      let number = Math.floor(Math.random() * (90 - 1) + 1)
       if (!list.includes(number)) {
         setIsWating(true)
         flag = false
@@ -44,12 +45,45 @@ function App() {
     setSearch(parseInt(e.target.value))
   }
 
+  const Sequence = () => {
+    let tempList = []
+    for (let i = 0; i <= 89; i++) {
+      tempList.push(<div
+        className="d-flex align-items-center justify-content-between border border-primary rounded-pill mx-2 my-2 px-3 "
+        style={{ width: "100px", height: "50px", backgroundColor: list.length == i + 1 ? "#f5cf9f" : list[i] == search ? "#7ff383" : "" }}>
+        <h6 className="pt-1" style={{ color: "grey" }}>{i + 1}</h6>
+        <span className="ml-2 " style={{ fontSize: "30px" }}><b>{list[i] && list[i]}</b></span>
+      </div>)
+    }
+    return tempList;
+  }
+
+  const Board = () => {
+    let tempList = []
+    for (let i = 0; i <= 89; i++) {
+      tempList.push(<div
+        className="d-flex align-items-center justify-content-between border border-primary rounded-pill mx-2 my-2 px-3 "
+        style={{ width: "100px", height: "50px", backgroundColor: list.includes(i) ? "#f5cf9f" : list[i] == search ? "#7ff383" : "" }}>
+        <span className="pl-3 " style={{ fontSize: "30px" }}><b>{i}</b></span>
+      </div>)
+    }
+    return tempList;
+  }
+
   return (
     <div className="row" style={{ height: "100vh", border: "2px solid" }}>
-      <div className="col-4 d-flex align-items-center flex-column pt-3" style={{ backgroundColor: "#edf5fe" }}>
-        <div className="d-flex align-items-center">
-          <FormControl type="number" placeholder="Check number in list" onChange={handleSearch} />
-          <span className="ml-2" style={{ fontSize: "20px", color: list.includes(search) ? "green" : "red" }}>{search ? list.includes(search) ? <>&#x2714;</> : <>&#x2716;</> : ""}</span>
+      <div className="col-3 d-flex align-items-center flex-column pt-3" style={{ backgroundColor: "#edf5fe" }}>
+        <div className="d-flex justify-content-center">
+          {/* <FormControl type="number" placeholder="Check number in list" onChange={handleSearch} />
+          <span className="ml-2" style={{ fontSize: "20px", color: list.includes(search) ? "green" : "red" }}>
+            {search ? list.includes(search) ? <>&#x2714;</> : <>&#x2716;</> : ""}
+          </span> */}
+          <Button  variant="secondary" onClick={handleOnReset}>
+            Reset
+        </Button>
+          <Button className="ml-3" variant="success" onClick={() => setView(!view)}>
+            Change View
+        </Button>
         </div>
         <div style={{ fontSize: "20px" }} className="pt-2">Previous</div>
         <div style={{ width: "120px", height: "120px" }} className="d-flex align-items-center justify-content-center border border-secondary rounded-circle mb-1" >
@@ -77,25 +111,16 @@ function App() {
             <>Spin &#x27F3;</>
           }
         </Button>
-
-        <Button className="mt-5" variant="secondary" onClick={handleOnReset} size="sm">
-          Reset
-        </Button>
       </div>
       <div className="col pt-2" style={{ overflow: "auto", height: "100%", backgroundColor: "#eef0d6", borderLeft: "1px solid" }}>
-        <Container>
-          {list.length != 0 ?
+        <div>
+          {list.length !== 0 ?
             <div class="d-flex flex-wrap">
-              {list.map((number, index) => <div className="d-flex align-items-center justify-content-between border border-primary rounded-pill mx-2 my-2 px-3 pt-1" style={{ width: "100px", backgroundColor: list.length == index + 1 ? "#f5cf9f" : number == search ? "#7ff383" : "" }}>
-                <h6 style={{ color: "grey" }}>{index + 1}</h6>
-                <h3 className="ml-2">{number}</h3>
-              </div>)}
+              {view ? <Sequence /> : <Board />}
             </div> :
-            <div className="mt-5">
-              <h1>Good Luck....!!!!</h1>
-            </div>
+            <h1 className="mt-5">Good  Luck...!</h1>
           }
-        </Container>
+        </div>
       </div>
     </div>
   );
