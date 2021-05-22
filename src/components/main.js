@@ -107,7 +107,7 @@ function App() {
               {spinner}
             </span> :
             list.length ?
-              <span style={{ fontSize: list.length ? "135px" : "30px" }}>
+              <span style={{ fontSize: list.length ? "135px" : "20px" }}>
                 {list[list.length - 1]}
               </span> :
               <h1>Start With Spin &#x21e9;</h1>
@@ -120,7 +120,7 @@ function App() {
           }
         </Button>
         <div class="d-flex flex-wrap mt-2">
-          {wins.map(label => <FormCheck className="m-2" style={{ width: "150px" }} label={label} />)}
+          {wins.map(label => <FormCheck className="m-2" style={{ width: "120px" }} label={label} />)}
         </div>
       </div>
       <div className="col pt-2" style={{ overflow: "auto", height: "100%", backgroundColor: "#eef0d6", borderLeft: "1px solid" }}>
