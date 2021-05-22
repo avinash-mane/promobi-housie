@@ -119,8 +119,8 @@ function App() {
             <>Spin &#x27F3;</>
           }
         </Button>
-        <div class="d-flex flex-wrap mt-2">
-          {wins.map(label => <FormCheck className="m-2" style={{ width: "120px" }} label={label} />)}
+        <div class="d-flex flex-wrap mt-2 mx-4">
+          {wins.map(label => <FormCheck style={{ width: "120px", textAlign:"left" }} label={label} />)}
         </div>
       </div>
       <div className="col pt-2" style={{ overflow: "auto", height: "100%", backgroundColor: "#eef0d6", borderLeft: "1px solid" }}>
