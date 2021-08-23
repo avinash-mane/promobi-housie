@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Button, Spinner, Container, FormControl, FormCheck } from "react-bootstrap";
+import { Button, Spinner, FormCheck } from "react-bootstrap";
+import { useHistory } from 'react-router-dom';
 const wins = [
   "Fast Five",
   "First Row",
@@ -14,6 +15,7 @@ function App() {
   const [spinner, setSpiner] = useState(1);
   const [search, setSearch] = useState(0);
   const [view, setView] = useState(false)
+  const history = useHistory();
 
   useEffect(() => {
     if (list.length) localStorage.setItem("numbers", JSON.stringify(list))
@@ -90,10 +92,13 @@ function App() {
           </span> */}
           <Button variant="info" onClick={handleOnReset} size="sm">
             Reset
-        </Button>
+          </Button>
           <Button className="ml-3" variant="success" onClick={() => setView(!view)} size="sm">
             Change View
-        </Button>
+          </Button>
+          <Button className="ml-3" variant="secondary" onClick={() => history.push("/tickets")} size="sm">
+            generate tickets
+          </Button>
         </div>
         <div style={{ fontSize: "20px" }} className="pt-2">Previous</div>
         <div style={{ width: "100px", height: "100px" }} className="d-flex align-items-center justify-content-center border border-secondary rounded-circle mb-1" >
