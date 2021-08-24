@@ -13,8 +13,6 @@ function App() {
   const [list, setList] = useState([]);
   const [isWating, setIsWating] = useState(false);
   const [spinner, setSpiner] = useState(1);
-  const [search, setSearch] = useState(0);
-  const [view, setView] = useState(false)
   const history = useHistory();
 
   useEffect(() => {
@@ -53,31 +51,21 @@ function App() {
     }
   }
 
-  const handleSearch = (e) => {
-    setSearch(parseInt(e.target.value))
-  }
-
-  const Sequence = () => {
-    let tempList = []
-    for (let i = 0; i <= 89; i++) {
-      tempList.push(<div
-        className="d-flex align-items-center justify-content-between border border-primary rounded-pill mx-2 my-2 px-2 "
-        style={{ width: "80px", height: "40px", backgroundColor: list.length == i + 1 ? "#f5cf9f" : list[i] == search ? "#7ff383" : "" }}>
-        <h6 className="pt-1" style={{ color: "grey" }}>{i + 1}</h6>
-        <span className="ml-2 " style={{ fontSize: "25px" }}><b>{list[i] && list[i]}</b></span>
-      </div>)
-    }
-    return tempList;
-  }
-
   const Board = () => {
     let tempList = []
+    let row = []
     for (let i = 1; i <= 90; i++) {
-      tempList.push(<div
-        className="d-flex align-items-center justify-content-between border border-primary rounded-pill mx-2 my-2 px-3 "
-        style={{ width: "80px", height: "40px", backgroundColor: list.includes(i) ? "#f5cf9f" : list[i] == search ? "#7ff383" : "" }}>
-        <span className="pl-2 " style={{ fontSize: "25px", color: !list.includes(i) ? "grey" : "" }}><b>{i}</b></span>
+
+      row.push(<div
+        className="col border border-primary rounded-pill mx-2 my-2"
+        style={{ backgroundColor: list.includes(i) ? "#f5cf9f" : "" }}>
+        <span style={{ fontSize: "25px", color: !list.includes(i) ? "#c1bbbb" : "" }}><b>{i}</b></span>
       </div>)
+
+      if (i % 10 == 0) {
+        tempList.push(<div className="row" style={{ margin: "0px", width: "90px", borderLeft: "1px solid", borderRight: "1px solid" }}>{row}</div>)
+        row = []
+      }
     }
     return tempList;
   }
@@ -86,15 +74,8 @@ function App() {
     <div className="row" style={{ height: "100vh", border: "2px solid" }}>
       <div className="col-3 d-flex align-items-center flex-column pt-3" style={{ backgroundColor: "#edf5fe" }}>
         <div className="d-flex justify-content-center">
-          {/* <FormControl type="number" placeholder="Check number in list" onChange={handleSearch} />
-          <span className="ml-2" style={{ fontSize: "20px", color: list.includes(search) ? "green" : "red" }}>
-            {search ? list.includes(search) ? <>&#x2714;</> : <>&#x2716;</> : ""}
-          </span> */}
           <Button variant="info" onClick={handleOnReset} size="sm">
             Reset
-          </Button>
-          <Button className="ml-3" variant="success" onClick={() => setView(!view)} size="sm">
-            Change View
           </Button>
           <Button className="ml-3" variant="secondary" onClick={() => history.push("/tickets")} size="sm">
             generate tickets
@@ -130,11 +111,11 @@ function App() {
           {wins.map(label => <FormCheck style={{ width: "120px", textAlign: "left" }} className="p-2" label={label} />)}
         </div>
       </div>
-      <div className="col pt-2" style={{ overflow: "auto", height: "100%", backgroundColor: "#eef0d6", borderLeft: "1px solid" }}>
+      <div className="col pt-2" style={{ height: "100%", backgroundColor: "#eef0d6", borderLeft: "1px solid" }}>
         <div>
           <h1><b>Good Luck...!</b></h1>
-          <div class="d-flex flex-wrap">
-            {view ? <Sequence /> : <Board />}
+          <div class="d-flex mx-5 mb-5">
+            <Board />
           </div>
         </div>
       </div>

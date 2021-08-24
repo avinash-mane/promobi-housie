@@ -14,25 +14,19 @@ function Ticket() {
         setList(tickets)
     }
 
-    const capture = (type, index) => {
+    const capture = (index) => {
         html2canvas(document.getElementById(`${index}`)).then(canvas => {
             let dataURL = canvas.toDataURL('image/png');
-
-            if (type === 'pdf') {
-                const pdf = new jsPDF({
-                    orientation: "landscape",
-                    unit: "in",
-                    format: [14, 10]
-                });
-                pdf.addImage(dataURL, 'PNG', .6, .6);
-                pdf.save(`${index}.pdf`);
-            }
+            var link = document.createElement('a');
+            link.download = `${index}.png`;
+            link.href = dataURL;
+            link.click();
         });
     }
 
     const Card = ({ card, index }) => {
         return <div className="mb-4">
-            <div id={index + 1} style={{ marginLeft: "20px", padding: "30px", background: "#abdec5" }} className="border border-success" >
+            <div id={index + 1} style={{ marginLeft: "20px", padding: "30px", background: "#fff" }} className="border border-success" >
                 {card._entries.map(row =>
                     <div class="row ">
                         {row.map(col => <div class="col border border-dark" style={{ width: "40px", height: "40px", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "20px" }}>{col || " "}</div>)}
@@ -40,7 +34,7 @@ function Ticket() {
                 }
                 <span> ticket : {index + 1}</span>
             </div>
-            <Button onClick={() => capture("pdf", index + 1)} className="mt-1" variant="dark">save</Button>
+            <Button onClick={() => capture(index + 1)} className="mt-1" variant="dark">save</Button>
         </div>
     }
     return (
