@@ -8,8 +8,8 @@ function App() {
   return (
     <div className="App" style={{ overflow: "hidden" }}>
       <Switch>
-        <Route exact path='/' component={Main} />
-        <Route path='/tickets' component={Ticket} />
+        <Route path='/promobi-housie/tickets' component={Ticket} />
+        <Route path='/' component={Main} />
       </Switch>
     </div>
   );

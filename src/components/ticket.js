@@ -56,7 +56,7 @@ function Ticket() {
             {!list.length ?
                 <div className="row" style={{ height: "100vh", background: "#cccbab", width: "100%", display: "flex", justifyContent: "center", alignItems: "center" }}>
                     <div>
-                        <Button onClick={() => history.push("/")} size="sm" variant="success" className="mb-2">Home</Button>
+                        <Button onClick={() => history.push("/promobi-housie")} size="sm" variant="success" className="mb-2">Home</Button>
                         <div>
                             <input style={{ padding: "10px" }} placeholder="enter number of players" onChange={(e) => setPlayers(e.target.value)} type="number" />
                         </div>
@@ -72,7 +72,7 @@ function Ticket() {
                     </div>
                 </div> :
                 <div style={{ background: "#cccbab" }}>
-                    <Button onClick={() => history.push("/")} size="sm" variant="success" className="mb-2">Home</Button>
+                    <Button onClick={() => history.push("/promobi-housie")} size="sm" variant="success" className="mb-2">Home</Button>
                     <div className="row" >
                         {list.map((ticket, index) => tempCard(ticket, index))}
                     </div>
