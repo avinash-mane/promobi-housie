@@ -2,12 +2,13 @@ import React, { useEffect, useState } from "react";
 import { Button, Spinner, FormCheck } from "react-bootstrap";
 import { useHistory } from 'react-router-dom';
 const wins = [
-  "Fast Five",
-  "First Row",
-  "Middle Row",
-  "Last Row",
+  "Early 5",
+  "Top Line",
+  "Middle Line",
+  "Bottom Line",
   "Four Corners",
-  "Bingo..."
+  "Full House 1",
+  " Full House 2"
 ]
 function App() {
   const [list, setList] = useState([]);
@@ -57,12 +58,12 @@ function App() {
     for (let i = 1; i <= 90; i++) {
 
       row.push(<div
-        className="col border border-primary rounded-pill mx-2 my-2"
+        className={`col border ${list.includes(i)? "border-danger": "border-primary"} rounded-pill mx-2 my-2`}
         style={{ backgroundColor: list.includes(i) ? "#f5cf9f" : "" }}>
-        <span style={{ fontSize: "25px", color: !list.includes(i) ? "#c1bbbb" : "" }}><b>{i}</b></span>
+        <span style={{ fontSize: "25px", color: !list.includes(i) ? "#c1bbbb" : "", fontWeight: !list.includes(i) ? "100" : "bold" }}><b>{i}</b></span>
       </div>)
 
-      if (i % 10 == 0) {
+      if (i % 10 === 0) {
         tempList.push(<div className="row" style={{ margin: "0px", width: "90px", borderLeft: "1px solid", borderRight: "1px solid" }}>{row}</div>)
         row = []
       }
@@ -95,7 +96,7 @@ function App() {
               {spinner}
             </span> :
             list.length ?
-              <span style={{ fontSize: list.length != 0 ? "135px" : "50px" }}>
+              <span style={{ fontSize: list.length != 0 ? "135px" : "50px", fontWeight: "bold" }}>
                 {list[list.length - 1]}
               </span> :
               <h2>Start With Spin &#x21e9;</h2>
@@ -114,7 +115,7 @@ function App() {
       <div className="col pt-2" style={{ height: "100%", backgroundColor: "#eef0d6", borderLeft: "1px solid" }}>
         <div>
           <h1><b>Good Luck...!</b></h1>
-          <div class="d-flex mx-5 mb-5">
+          <div class="d-flex mx-5 mb-5 border border-dark w-75">
             <Board />
           </div>
         </div>
