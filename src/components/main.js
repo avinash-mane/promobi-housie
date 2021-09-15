@@ -106,7 +106,7 @@ function App() {
               <h2>Start With Spin &#x21e9;</h2>
           }
         </div>
-        <Button className="mt-3" onClick={handleOnClick}>
+        <Button className="mt-3" onClick={handleOnClick} disabled={isWating}>
           {isWating ?
             <Spinner animation="border" variant="info" /> :
             <>Spin &#x27F3;</>
