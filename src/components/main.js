@@ -58,13 +58,13 @@ function App() {
     for (let i = 1; i <= 90; i++) {
 
       row.push(<div
-        className={`col border ${list.includes(i)? "border-danger": "border-primary"} rounded-pill mx-2 my-2`}
-        style={{ backgroundColor: list.includes(i) ? "#f5cf9f" : "" }}>
-        <span style={{ fontSize: "25px", color: !list.includes(i) ? "#c1bbbb" : "", fontWeight: !list.includes(i) ? "100" : "bold" }}><b>{i}</b></span>
+        className={`col  ${list.includes(i) ? "border-danger" : ""} rounded-pill mx-2 my-2`}
+        style={{ backgroundColor: list.includes(i) ? "#d5e4f3" : "" }}>
+        <span style={{ fontSize: "25px", color: !list.includes(i) ? "#6c757d" : "", fontWeight: !list.includes(i) ? "100" : "bold" }}><b>{i}</b></span>
       </div>)
 
       if (i % 10 === 0) {
-        tempList.push(<div className="row" style={{ margin: "0px", width: "90px", borderLeft: "1px solid", borderRight: "1px solid" }}>{row}</div>)
+        tempList.push(<div className="row" style={{ margin: "0px", width: "90px", borderLeft: "1px solid #fff", borderRight: "1px solid" }}>{row}</div>)
         row = []
       }
     }
@@ -73,7 +73,7 @@ function App() {
 
   return (
     <div className="row" style={{ height: "100vh", border: "2px solid" }}>
-      <div className="col-3 d-flex align-items-center flex-column pt-3" style={{ backgroundColor: "#edf5fe" }}>
+      <div className="col-3 d-flex align-items-center flex-column pt-3" style={{ backgroundColor: "#adb5bd" }}>
         <div className="d-flex justify-content-center">
           <Button variant="info" onClick={handleOnReset} size="sm">
             Reset
@@ -90,19 +90,19 @@ function App() {
             </span>
           }
         </div>
-        <div style={{ width: "200px", height: "200px" }} className="d-flex align-items-center justify-content-center border border-dark rounded-circle" >
+        <div style={{ width: "200px", height: "200px",background:"#d5e4f3" }} className="d-flex align-items-center justify-content-center border border-dark rounded-circle" >
           {isWating ?
             <span style={{ fontSize: "135px", color: "grey" }}>
               {spinner}
             </span> :
             list.length ?
-              <span style={{ fontSize: list.length != 0 ? "135px" : "50px", fontWeight: "bold" }}>
+              <span style={{ fontSize: list.length != 0 ? "135px" : "50px", fontWeight: "bold"}}>
                 {list[list.length - 1]}
               </span> :
               <h2>Start With Spin &#x21e9;</h2>
           }
         </div>
-        <Button className="mt-3" variant="outline-primary" onClick={handleOnClick}>
+        <Button className="mt-3" onClick={handleOnClick}>
           {isWating ?
             <Spinner animation="border" variant="info" /> :
             <>Spin &#x27F3;</>
@@ -112,10 +112,10 @@ function App() {
           {wins.map(label => <FormCheck style={{ width: "120px", textAlign: "left" }} className="p-2" label={label} />)}
         </div>
       </div>
-      <div className="col pt-2" style={{ height: "100%", backgroundColor: "#eef0d6", borderLeft: "1px solid" }}>
+      <div className="col pt-2" style={{ height: "100%", backgroundColor: "#adb5bd", borderLeft: "1px solid" }}>
         <div>
           <h1><b>Good Luck...!</b></h1>
-          <div class="d-flex mx-5 mb-5 border border-dark w-75">
+          <div class="d-flex mx-5 mb-5 bg-dark w-75" style={{ borderColor: "#adb5bd",border:"5px solid #d5e4f3" }}>
             <Board />
           </div>
         </div>
