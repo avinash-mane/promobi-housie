@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Button, Spinner, FormCheck } from "react-bootstrap";
 import { useHistory } from 'react-router-dom';
+import sound from "../assets/spin.mp3"
 const wins = [
   "Early 5",
   "Top Line",
@@ -14,6 +15,7 @@ function App() {
   const [list, setList] = useState([]);
   const [isWating, setIsWating] = useState(false);
   const [spinner, setSpiner] = useState(1);
+  const [audio, setAudio]=useState(new Audio(sound));
   const history = useHistory();
 
   useEffect(() => {
@@ -41,12 +43,14 @@ function App() {
         let number = Math.floor(Math.random() * (91 - 1) + 1)
         if (!list.includes(number)) {
           setIsWating(true)
+          audio.play()
           flag = false
           setTimeout(() => {
             clearInterval(intervalId)
             setList([...list, number])
             setIsWating(false)
-          }, 1000)
+            audio.remove()
+          }, 3600)
         }
       }
     }
