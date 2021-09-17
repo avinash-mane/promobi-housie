@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/promobi-housie/static/css/main.ab7136cd.chunk.css",
-    "main.js": "/promobi-housie/static/js/main.dbc9fd16.chunk.js",
-    "main.js.map": "/promobi-housie/static/js/main.dbc9fd16.chunk.js.map",
+    "main.js": "/promobi-housie/static/js/main.b167fbdf.chunk.js",
+    "main.js.map": "/promobi-housie/static/js/main.b167fbdf.chunk.js.map",
     "runtime-main.js": "/promobi-housie/static/js/runtime-main.dd87a4bf.js",
     "runtime-main.js.map": "/promobi-housie/static/js/runtime-main.dd87a4bf.js.map",
     "static/css/2.20aa2d7b.chunk.css": "/promobi-housie/static/css/2.20aa2d7b.chunk.css",
@@ -21,6 +21,6 @@
     "static/css/2.20aa2d7b.chunk.css",
     "static/js/2.f08adc1c.chunk.js",
     "static/css/main.ab7136cd.chunk.css",
-    "static/js/main.dbc9fd16.chunk.js"
+    "static/js/main.b167fbdf.chunk.js"
   ]
 }
