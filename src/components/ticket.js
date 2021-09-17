@@ -17,7 +17,8 @@ function Ticket() {
     }
 
     const capture = (color, index) => {
-        html2canvas(document.getElementById(`${index*(colors.indexOf(color)+1)}`)).then(canvas => {
+        debugger
+        html2canvas(document.getElementById(`${index+(colors.indexOf(color)*player)}`)).then(canvas => {
             let dataURL = canvas.toDataURL('image/png');
             var link = document.createElement('a');
             link.download = `${color + "_" + index}.png`;
