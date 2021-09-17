@@ -17,7 +17,7 @@ function Ticket() {
     }
 
     const capture = (color, index) => {
-        html2canvas(document.getElementById(`${index}`)).then(canvas => {
+        html2canvas(document.getElementById(`${index*(colors.indexOf(color)+1)}`)).then(canvas => {
             let dataURL = canvas.toDataURL('image/png');
             var link = document.createElement('a');
             link.download = `${color + "_" + index}.png`;
@@ -34,7 +34,7 @@ function Ticket() {
             let i = index + 1 > player ? (index + 1) - player * (temp - 1) : index + 1
             let color = colors[temp - 1]
             return <div className="mb-4">
-                <div id={i} style={{ marginLeft: "20px", padding: "30px", background: "#fff" }} className="border border-success" >
+                <div id={index+1} style={{ marginLeft: "20px", padding: "30px", background: "#fff" }} className="border border-success" >
                     <span>{color}</span>
                     {card._entries.map(row =>
                         <div class="row ">
